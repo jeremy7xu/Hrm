@@ -21,7 +21,7 @@
 			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/hrm"></property>
 	</bean>
 	<bean id ="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-            <property name="dataSource" ref="ds"></property>
+            <property name="dataSource" ref="myDataSource"></property>
             <property name="configLocation" value="classpath:mybatis-config.xml"></property>
      </bean>
       <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
@@ -29,7 +29,7 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />  
     </bean>
      <bean id="transactionManager"  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-          <property name="dataSource" ref="ds"></property>
+          <property name="dataSource" ref="myDataSource"></property>
      </bean>
      <tx:annotation-driven transaction-manager="transactionManager"/>
 	</beans>

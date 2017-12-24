@@ -7,6 +7,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<package name="org.deepsl.hrm.domain"/>
 	</typeAliases>
 	<mappers>
-		<package name="org.deels.hrm.dao"/>
+		<package name="org.deepsl.hrm.dao"/>
 	</mappers>
 </configuration>

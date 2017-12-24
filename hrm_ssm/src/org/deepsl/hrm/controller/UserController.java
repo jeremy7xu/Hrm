@@ -46,12 +46,12 @@ public class UserController {
 			// 将用户保存到HttpSession当中
 			session.setAttribute(HrmConstants.USER_SESSION, user);
 			// 客户端跳转到main页面
-			mv.setViewName("redirect:/main");
+			mv.setViewName("main");
 		}else{
 			// 设置登录失败提示信息
 			mv.addObject("message", "登录名或密码错误!请重新输入");
 			// 服务器内部跳转到登录页面
-			mv.setViewName("forward:/loginForm");
+			mv.setViewName("forward:loginForm");
 		}
 		return mv;
 		

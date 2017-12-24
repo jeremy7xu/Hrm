@@ -29,7 +29,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @version V1.0   
  */
 @Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.DEFAULT)
-@Service("hrmService")
+@Service
 public class HrmServiceImpl implements HrmService{
 
 	/**
