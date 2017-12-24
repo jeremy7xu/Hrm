@@ -10,7 +10,10 @@
 	   http://www.springframework.org/schema/context/spring-context.xsd
 	   http://www.springframework.org/schema/mvc 
 	   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-	<context:component-scan base-package="org.deepsl.hrm"></context:component-scan>
-	<mvc:annotation-driven></mvc:annotation-driven>
-	 <mvc:default-servlet-handler/>
+	
+	<context:component-scan base-package="org.deepsl.hrm.controller" use-default-filters="false">  
+			<context:include-filter  type="annotation"  expression="org.springframework.stereotype.Controller"/>
+     </context:component-scan>
+	<mvc:annotation-driven/>
+   	<mvc:default-servlet-handler/>
 </beans>

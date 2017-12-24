@@ -27,7 +27,6 @@ public class UserController {
 	 * 自动注入UserService
 	 * */
 	@Autowired
-	@Qualifier("hrmService")
 	private HrmService hrmService;
 		
 	/**
