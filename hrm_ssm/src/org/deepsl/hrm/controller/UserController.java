@@ -26,7 +26,7 @@ public class UserController {
 	/**
 	 * 自动注入UserService
 	 * */
-	@Autowired
+	/*@Autowired*/
 	@Qualifier("hrmService")
 	private HrmService hrmService;
 		
@@ -46,6 +46,7 @@ public class UserController {
 		if(user != null){
 			// 将用户保存到HttpSession当中
 			session.setAttribute(HrmConstants.USER_SESSION, user);
+			
 			// 客户端跳转到main页面
 			mv.setViewName("redirect:/main");
 		}else{
