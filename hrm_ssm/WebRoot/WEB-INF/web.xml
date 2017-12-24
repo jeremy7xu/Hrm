@@ -7,6 +7,7 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/applicationContext*.xml</param-value>
   </context-param>
+  
   <servlet>
     <servlet-name>springmvc</servlet-name>
     <servlet-class>
