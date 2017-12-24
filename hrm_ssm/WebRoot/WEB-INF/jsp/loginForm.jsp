@@ -87,7 +87,8 @@
 				style="font-size: 13px;">1.0</span> 系统
 			</a>
 		</div>
-		<form action="login.mvc" method="post" id="loginForm">
+		${message}
+		<form action="login" method="post" id="loginForm">
 			<div class="page-body">
 				<img class="page-lock-img"
 					src="${ctx}/js/metronic/img/profile/logo2.jpg" alt="">

@@ -1,1 +1,7 @@
+/log4j.properties
+/mybatis.xml
 /org
+/applicationContext.xml
+/springmvc-config.xml
+/applictionContext.xml
+/mybatis-config.xml

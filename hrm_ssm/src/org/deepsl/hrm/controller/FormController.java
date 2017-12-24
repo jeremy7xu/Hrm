@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,17 +37,10 @@ public class FormController{
 		// 动态跳转页面
 		return formName;
 	}
-	
 	@RequestMapping("main")
-	public String jumpToMainPage(HttpServletRequest request ){
-		
-		HttpSession session = request.getSession(false);
-		if (null != session && session.getAttribute("user_session") != null) {
-			return "/WEB-INF/jsp/main.jsp";
-		}
-		
-		return "/WEB-INF/jsp/loginForm.jsp";
+	 public String tologin(HttpServletRequest request,Model model){
+		// 动态跳转页面
+		return "loginForm";
 	}
-
 }
 
