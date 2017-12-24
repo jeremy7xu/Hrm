@@ -3,6 +3,8 @@ package org.deepsl.hrm.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -35,6 +37,10 @@ public class FormController{
 		// 动态跳转页面
 		return formName;
 	}
-
+	@RequestMapping("main")
+	 public String tologin(HttpServletRequest request,Model model){
+		// 动态跳转页面
+		return "/WEB-INF/jsp/loginForm.jsp";
+	}
 }
 
