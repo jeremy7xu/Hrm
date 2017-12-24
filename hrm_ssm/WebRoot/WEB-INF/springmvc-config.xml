@@ -12,5 +12,5 @@
 	   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<context:component-scan base-package="org.deepsl.hrm"></context:component-scan>
 	<mvc:annotation-driven></mvc:annotation-driven>
-		
+	 <mvc:default-servlet-handler/>
 </beans>
