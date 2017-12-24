@@ -3,6 +3,9 @@ package org.deepsl.hrm.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -34,6 +37,17 @@ public class FormController{
 	 public String loginForm(@PathVariable String formName){
 		// 动态跳转页面
 		return formName;
+	}
+	
+	@RequestMapping("main")
+	public String jumpToMainPage(HttpServletRequest request ){
+		
+		HttpSession session = request.getSession(false);
+		if (null != session && session.getAttribute("user_session") != null) {
+			return "/WEB-INF/jsp/main.jsp";
+		}
+		
+		return "/WEB-INF/jsp/loginForm.jsp";
 	}
 
 }
