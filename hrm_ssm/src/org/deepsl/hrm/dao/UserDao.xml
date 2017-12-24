@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.deepsl.hrm.dao.UserDao">
+  
+   <select id="selectByLoginnameAndPassword" parameterType="hashmap"  resultType="org.deepsl.hrm.domain.User" >
+		 select * from  user_inf  where loginname = #{loginname} and password = #{password} 
+   </select>
+
+
+</mapper>
