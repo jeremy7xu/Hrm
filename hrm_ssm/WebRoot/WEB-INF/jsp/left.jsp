@@ -60,8 +60,8 @@
 		  <tr><td id="navbg2" class="left_nav_closed" ><div class="font1">职位管理</div></td></tr>
 		  <tr valign="top" id="submenu2" style="display: none">
 		    <td class="left_nav_bgshw" height="50">
-			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="job/selectJob" target="main">职位查询</a></img></p>
-			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="job/addJob?flag=1" target="main">添加职位</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="job/toSelectJob" target="main">职位查询</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="job/toAddJob?flag=1" target="main">添加职位</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
