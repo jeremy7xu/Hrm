@@ -129,9 +129,9 @@ public class UserController {
 	
 	/**
 	 * 处理修改用户请求
-	 * @param pageIndex 请求的是第几页
-	 * @param employee 模糊查询参数
-	 * @param Model model
+	 * @param id 请求修改的用户id
+	 * @param flag 
+	 * @param user 
 	 * */
 	@RequestMapping("user/updateUser")
 	public ModelAndView updateUser(String flag, String id, User user) {

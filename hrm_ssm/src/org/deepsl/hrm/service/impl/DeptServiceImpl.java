@@ -74,10 +74,16 @@ public class DeptServiceImpl implements DeptService {
 
 	@Override
 	public int countDept(Dept dept) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		Map<String, Object> params = new HashMap<String,Object>();
 		params.put("name", dept.getName());
 		return deptDao.count(params);
+	}
+
+	@Override
+	public void removeDeptByIds(List<Integer> list) {
+		// TODO Auto-generated method stub
+		deptDao.deleteByIds(list);
 	}
 
 }

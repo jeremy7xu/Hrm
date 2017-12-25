@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 
+
 import org.deepsl.hrm.domain.Dept;
 
 import static org.deepsl.hrm.util.common.HrmConstants.DEPTTABLE;
@@ -30,7 +31,9 @@ public interface DeptDao {
 	// 动态插入部门
 	void save(Dept dept);
 	
-	// 动态修改用户
+	// 动态修改部门
 	void update(Dept dept);
+	// 批量删除部门
+	void deleteByIds(List<Integer> list);
 
 }

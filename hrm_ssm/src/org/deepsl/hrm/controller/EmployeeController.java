@@ -6,8 +6,10 @@ import java.util.List;
 import org.deepsl.hrm.domain.Dept;
 import org.deepsl.hrm.domain.Employee;
 import org.deepsl.hrm.domain.Job;
+
 import org.deepsl.hrm.service.DeptService;
 import org.deepsl.hrm.service.EmployService;
+
 import org.deepsl.hrm.service.HrmService;
 import org.deepsl.hrm.service.JobService;
 import org.deepsl.hrm.util.tag.PageModel;
@@ -23,10 +25,10 @@ import org.springframework.web.servlet.ModelAndView;
  * @Description: 处理员工请求控制器   
  * @version V1.0   
  */
-@RequestMapping("employee")
 @Controller
 public class EmployeeController {
 	 
+
 	
 	// EmployService
 	@Autowired
@@ -52,4 +54,5 @@ public class EmployeeController {
 		
 	}
 	
+
 }

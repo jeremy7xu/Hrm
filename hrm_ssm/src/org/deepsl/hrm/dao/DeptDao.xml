@@ -29,4 +29,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<update id="update" parameterType="dept">
 	 update dept_inf set name=#{name} ,remark =#{remark} where id=#{id} 
 	</update>
+	<delete id="deleteByIds" parameterType="list">
+		delete from dept_inf where id in
+		<foreach collection="list" item="id" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
 </mapper>
