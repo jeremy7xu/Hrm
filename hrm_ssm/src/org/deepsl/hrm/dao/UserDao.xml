@@ -62,15 +62,3 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
    </select>
 
 </mapper>
-	<!--  动态修改用户 -->
-	<select id="update" parameterType="user" >
-		
-			update user_inf set 
-		 		username=#{username}, 
-		 		loginname=#{loginname}, 
-		 		password=#{password}, 
-		 		status=#{status}
-		 	 where id = #{id}
-   </select>
-
-</mapper>
