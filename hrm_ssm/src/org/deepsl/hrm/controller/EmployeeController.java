@@ -6,6 +6,7 @@ import java.util.List;
 import org.deepsl.hrm.domain.Dept;
 import org.deepsl.hrm.domain.Employee;
 import org.deepsl.hrm.domain.Job;
+import org.deepsl.hrm.service.EmployService;
 import org.deepsl.hrm.service.HrmService;
 import org.deepsl.hrm.util.tag.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -27,6 +27,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		 insert into dept_inf values(null,#{name},#{remark}); 
    </insert>
 	<update id="update" parameterType="dept">
-		update dept_inf set name=#{name} ,remark =#{remark} where id=#{id}
+	 update dept_inf set name=#{name} ,remark =#{remark} where id=#{id} 
 	</update>
 </mapper>

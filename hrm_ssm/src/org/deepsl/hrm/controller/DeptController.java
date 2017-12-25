@@ -33,7 +33,6 @@ public class DeptController {
 		int countDept = deptService.countDept(dept);
 		pageModel.setRecordCount(countDept);
 		List<Dept> findAllDept = deptService.findDept(dept, pageModel);
-
 		mv.addObject(pageModel);
 		System.out.println(findAllDept);
 		mv.addObject("depts", findAllDept);
