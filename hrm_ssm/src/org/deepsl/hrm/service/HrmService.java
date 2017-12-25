@@ -1,5 +1,7 @@
 package org.deepsl.hrm.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.deepsl.hrm.domain.Dept;
@@ -55,6 +57,10 @@ public interface HrmService {
 	 * @param User 用户对象
 	 * */
 	void addUser(User user);
+
+	HashMap<String, Object> getPageModelAndUserList(String pageIndex,HashMap<String, Object> params);
+
+	void deleteUsersByIds(ArrayList<Integer> idList);
 	
 	
 	

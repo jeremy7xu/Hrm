@@ -1,5 +1,6 @@
 package org.deepsl.hrm.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,25 +105,46 @@ public class HrmServiceImpl implements HrmService{
 	 * */
 	@Override
 	public void addUser(User user) {
- 		
+ 		userDao.save(user);
 	}
-	
-	/*****************部门服务接口实现*************************************/
- 
-	/*****************员工服务接口实现*************************************/
- 
-	
-	/*****************职位接口实现*************************************/
 
- 
-	
-	/*****************公告接口实现*************************************/
-	 
+	@Override
+	public HashMap<String, Object> getPageModelAndUserList(String pageIndex, HashMap<String, Object> params) {
+		
+		HashMap<String, Object> map = new HashMap<>();
+		
+		PageModel pageModel = new PageModel();		//pageSize初始值默认为4
+		
+		int limit = pageModel.getPageSize();		 //限制每页记录数
+		
+		int recordCount = userDao.count(params);		//查询总记录数
+		
+		//int totalSize = recordCount % limit == 0 ? (recordCount / limit) :(recordCount / limit + 1);//总页数  
+		if (null == pageIndex || "".equals(pageIndex)) {
+			pageIndex = "1";
+		}
+		int pageIndex1 = Integer.parseInt(pageIndex); //当前页数
+		
+		pageModel.setRecordCount(recordCount);
+		pageModel.setPageIndex(pageIndex1);
+		
+		map.put("pageModel", pageModel);  //把pageModel存到map里面
+		 
+		params.put("limit", limit);
+		params.put("offset", pageModel.getFirstLimitParam());
+		
+		List<User> users = userDao.selectByPage(params);
+		
+		map.put("users", users);
+		
+		return map;
+	}
 
-	/*****************文件接口实现*************************************/
+	@Override
+	public void deleteUsersByIds(ArrayList<Integer> idList) {
+		for (Integer id : idList) {
+			userDao.deleteById(id);
+		}	
+	}
 
- 
- 
- 
-	
 }
