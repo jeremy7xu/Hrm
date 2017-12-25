@@ -63,13 +63,13 @@ public class DeptServiceImpl implements DeptService {
 	@Override
 	public Dept findDeptById(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return deptDao.selectById(id);
 	}
 
 	@Override
 	public void modifyDept(Dept dept) {
 		// TODO Auto-generated method stub
-
+		deptDao.update(dept);
 	}
 
 	@Override

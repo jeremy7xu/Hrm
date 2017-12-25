@@ -40,12 +40,30 @@ public class DeptController {
 		mv.setViewName("dept/dept");
 		return mv;
 	}
-	
+
+	@RequestMapping(value="updateDept")
+	public ModelAndView updateDept(@RequestParam("flag")String flag,Dept dept,ModelAndView mv){
+		System.out.println(flag);
+		if("1".equals(flag))
+			if(dept!=null){
+				Dept findDeptById = deptService.findDeptById(dept.getId());
+				mv.addObject("dept", findDeptById);
+				mv.setViewName("dept/showUpdateDept");
+			}
+		if("2".equals(flag)){
+			if(dept!=null){
+				deptService.modifyDept(dept);
+				mv.setViewName("forward:selectDept");
+			}
+			
+		}
+		return mv;
+	}
 	@RequestMapping(value="addDept")
 	public ModelAndView addDept(@RequestParam("flag")String flag,Dept dept,ModelAndView mv){
 		System.out.println(flag);
 		if("1".equals(flag))
-			mv.setViewName("dept/showAddDept");
+				mv.setViewName("dept/showAddDept");
 		if("2".equals(flag)){
 			if(dept==null||dept.getName().isEmpty()||dept.getRemark().isEmpty()){
 				mv.addObject("errorMessage", "添加信息为空");
