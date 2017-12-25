@@ -2,6 +2,7 @@ package org.deepsl.hrm.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.deepsl.hrm.domain.User;
 import org.deepsl.hrm.util.common.HrmConstants;
@@ -48,12 +49,24 @@ public class AuthorizedInterceptor  implements HandlerInterceptor {
 		/** 默认用户没有登录 */
 		boolean flag = false; 
 		/** 获得请求的ServletPath */
-		
+		String uri = request.getServletPath();
+		System.out.println("AuthorizedInterceptor.preHandle()"+uri);
 		/**  判断请求是否需要拦截 */
-       
+		
+		for (String str : IGNORE_URI) {
+			if (str.equals(uri)) {
+				flag = true;
+			}
+		}
+		
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute(HrmConstants.USER_SESSION) != null) {
+			flag = true;
+		}
+		
         /** 如果需要 则拦截请求 */
          System.out.println("AuthorizedInterceptor.preHandle()");
-        return true;
+        return flag;
 		
 	}
 
