@@ -80,4 +80,10 @@ public class DeptServiceImpl implements DeptService {
 		return deptDao.count(params);
 	}
 
+	@Override
+	public void removeDeptByIds(List<Integer> list) {
+		// TODO Auto-generated method stub
+		deptDao.deleteByIds(list);
+	}
+
 }

@@ -46,4 +46,6 @@ public interface DeptService {
 	void modifyDept(Dept dept);
 	
 	int countDept(Dept dept);
+
+	void removeDeptByIds(List<Integer> list);
 }
