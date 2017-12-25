@@ -40,7 +40,7 @@ public class FormController{
 	@RequestMapping("main")
 	 public String tologin(HttpServletRequest request,Model model){
 		// 动态跳转页面
-		return "/WEB-INF/jsp/loginForm.jsp";
+		return "loginForm";
 	}
 }
 
