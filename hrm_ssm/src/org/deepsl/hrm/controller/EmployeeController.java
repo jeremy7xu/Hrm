@@ -20,7 +20,27 @@ import org.springframework.web.servlet.ModelAndView;
  * @Description: 处理员工请求控制器   
  * @version V1.0   
  */
+@RequestMapping("employee")
 @Controller
 public class EmployeeController {
 	 
+	
+	// EmployService
+	@Autowired
+	EmployService employService;
+	
+	
+	@RequestMapping("addEmployee")
+	public String addemployee(String flag,Employee employee, Model model,String job_id,String dept_id){
+		
+		if("1".equals(flag)){
+			
+			return "employee/showAddEmployee";
+		}
+		employService.addEmployee(employee);
+		
+		return "employee";
+		
+	}
+	
 }

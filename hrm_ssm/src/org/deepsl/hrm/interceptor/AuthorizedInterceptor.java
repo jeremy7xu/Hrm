@@ -52,7 +52,7 @@ public class AuthorizedInterceptor  implements HandlerInterceptor {
 		/**  判断请求是否需要拦截 */
        
         /** 如果需要 则拦截请求 */
-         
+         System.out.println("AuthorizedInterceptor.preHandle()");
         return true;
 		
 	}

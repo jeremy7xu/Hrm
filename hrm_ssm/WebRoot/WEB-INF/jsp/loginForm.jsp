@@ -87,6 +87,7 @@
 				style="font-size: 13px;">1.0</span> 系统
 			</a>
 		</div>
+		${message}
 		<form action="login" method="post" id="loginForm">
 			<div class="page-body">
 				<img class="page-lock-img"

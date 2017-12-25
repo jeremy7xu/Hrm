@@ -39,5 +39,8 @@ public interface UserDao {
 	
 	// 动态插入用户
 	void save(User user);
+
+
+
 	
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.deepsl.hrm.dao.JobDao">
+ 
+ 	<insert id="save" parameterType="job">
+ 		insert into job values(#{id},#{name},#{remark});
+ 	</insert>
+
+	<update id="update" parameterType="job">
+		update job set name=#{name},remark=#{remark};
+	</update>
+	
+	<select id="count" parameterType="hashmap" resultType="int">
+		select count(*) from job where name like #{name};
+	</select>
+	
+	<select id="selectByPage" parameterType="hashmap" resultType="job">
+		select * from job where name like #{name} limit #{limit} offset #{offset};
+	</select>
+	
+	<select id="selectAllJob" resultType="job">
+		select * from job;
+	</select>
+	
+	<select id="selectById" parameterType="int" resultType="job">
+		select * from job where id=#{id};
+	</select>
+	
+	<delete id="deleteById" parameterType="int">
+		delete from job where id=#{id};
+	</delete>
+</mapper>
