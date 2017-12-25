@@ -24,7 +24,7 @@
     	
     	$("#exit").click(function(){
     		/** parent从主界面进行退出,避免局部刷新*/
-    		parent.location = "${ctx}/logout.action";
+    		parent.location = "${ctx}/user/logout";
     	})
 	})
 	
