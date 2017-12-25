@@ -44,6 +44,6 @@ public interface DeptService {
 	 * @param dept 部门对象
 	 * */
 	void modifyDept(Dept dept);
-
+	
 	int countDept(Dept dept);
 }
