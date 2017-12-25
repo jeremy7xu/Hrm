@@ -6,8 +6,10 @@ import java.util.List;
 import org.deepsl.hrm.domain.Dept;
 import org.deepsl.hrm.domain.Employee;
 import org.deepsl.hrm.domain.Job;
+import org.deepsl.hrm.service.DeptService;
 import org.deepsl.hrm.service.EmployService;
 import org.deepsl.hrm.service.HrmService;
+import org.deepsl.hrm.service.JobService;
 import org.deepsl.hrm.util.tag.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -30,6 +32,12 @@ public class EmployeeController {
 	@Autowired
 	EmployService employService;
 	
+	@Autowired
+	DeptService deptService;
+	
+	@Autowired
+	@Qualifier("jobService")
+	JobService jobService;
 	
 	@RequestMapping("addEmployee")
 	public String addemployee(String flag,Employee employee, Model model,String job_id,String dept_id){
