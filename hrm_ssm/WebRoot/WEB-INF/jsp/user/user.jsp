@@ -33,8 +33,12 @@
 	    		$(this).css("backgroundColor","#eeccff");
 	    	},function(){
 	    		$(this).css("backgroundColor","#ffffff");
-	    	})
+	    	});
 	    	
+	    	/**  全选  /全不选 */
+			 $("#checkAll").bind("click",function(){           
+			    $("input[name='checkbox']").prop("checked",this.checked);
+			 });
 	    	
 	 	   /** 删除员工绑定点击事件 */
 	 	   $("#delete").click(function(){
@@ -46,17 +50,17 @@
 	 			   /** 得到用户选中的所有的需要删除的ids */
 	 			   var ids = checkedBoxs.map(function(){
 	 				   return this.value;
-	 			   })
+	 			   });
 	 			   
 	 			   $.ligerDialog.confirm("确认要删除吗?","删除用户",function(r){
 	 				   if(r){
-	 					   // alert("删除："+ids.get());
+	 					    alert("删除："+ids.get());
 	 					   // 发送请求
 	 					   window.location = "${ctx }/user/removeUser?ids=" + ids.get();
 	 				   }
 	 			   });
 	 		   }
-	 	   })
+	 	   });
 	    })
 	</script>
 </head>
@@ -78,6 +82,7 @@
 		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
 		    <tr>
 			  <td class="fftd">
+			  	${error}
 			  	<form name="empform" method="post" id="empform" action="${ctx}/user/selectUser">
 				    <table width="100%" border="0" cellpadding="0" cellspacing="0">
 					  <tr>
@@ -111,7 +116,7 @@
 			</tr>
 			<c:forEach items="${requestScope.users}" var="user" varStatus="stat">
 				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
-					<td><input type="checkbox" id="box_${stat.index}" value="${user.id}"></td>
+					<td><input type="checkbox" name="checkbox" id="box_${stat.index}" value="${user.id}"></td>
 					 <td>${user.loginname }</td>
 					  <td>${user.password }</td>
 					  <td>${user.username }</td>
@@ -133,7 +138,7 @@
 	  	        pageSize="${requestScope.pageModel.pageSize}" 
 	  	        recordCount="${requestScope.pageModel.recordCount}" 
 	  	        style="digg"
-	  	        submitUrl="${ctx}/employee/selectEmployee?pageIndex={0}"/>
+	  	        submitUrl="${ctx}/user/selectUser?pageIndex={0}"/>
 	  </td></tr>
 	</table>
 	<div style="height:10px;"></div>

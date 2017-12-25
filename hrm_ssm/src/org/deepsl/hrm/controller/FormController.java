@@ -37,10 +37,11 @@ public class FormController{
 		// 动态跳转页面
 		return formName;
 	}
-	@RequestMapping("main")
+	@RequestMapping("loginForm")
 	 public String tologin(HttpServletRequest request,Model model){
 		// 动态跳转页面
 		return "loginForm";
 	}
+	
 }
 
