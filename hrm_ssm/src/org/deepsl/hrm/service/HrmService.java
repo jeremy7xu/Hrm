@@ -55,6 +55,7 @@ public interface HrmService {
 	 * @param User 用户对象
 	 * */
 	void addUser(User user);
+
 	
 	
 	

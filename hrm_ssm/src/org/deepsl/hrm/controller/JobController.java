@@ -2,6 +2,7 @@ package org.deepsl.hrm.controller;
 
 import java.util.List;
 
+import org.deepsl.hrm.domain.Dept;
 import org.deepsl.hrm.domain.Job;
 import org.deepsl.hrm.service.HrmService;
 import org.deepsl.hrm.util.tag.PageModel;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**   
@@ -20,6 +22,5 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class JobController {
-
- 
+	
 }

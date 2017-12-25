@@ -37,7 +37,7 @@ public class HrmServiceImpl implements HrmService{
 	 * */
 	@Autowired
 	private UserDao userDao;
- 
+
 	
 	/*****************用户服务接口实现*************************************/
 	/**
@@ -106,9 +106,11 @@ public class HrmServiceImpl implements HrmService{
 	public void addUser(User user) {
  		
 	}
+
+	
 	
 	/*****************部门服务接口实现*************************************/
- 
+
 	/*****************员工服务接口实现*************************************/
  
 	
