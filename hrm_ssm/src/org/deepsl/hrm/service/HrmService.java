@@ -59,7 +59,11 @@ public interface HrmService {
 	void addUser(User user);
 
 	HashMap<String, Object> getPageModelAndUserList(String pageIndex,HashMap<String, Object> params);
-
+	
+	/**
+	 * 根据id批量删除用户
+	 * @param idList
+	 * */
 	void deleteUsersByIds(ArrayList<Integer> idList);
 	
 	

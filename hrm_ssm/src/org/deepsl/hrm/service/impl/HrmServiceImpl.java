@@ -140,6 +140,7 @@ public class HrmServiceImpl implements HrmService{
 		return map;
 	}
 
+	
 	@Override
 	public void deleteUsersByIds(ArrayList<Integer> idList) {
 		for (Integer id : idList) {
