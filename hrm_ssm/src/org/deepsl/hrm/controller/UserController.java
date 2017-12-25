@@ -57,7 +57,7 @@ public class UserController {
 			// 设置登录失败提示信息
 			mv.addObject("message", "登录名或密码错误!请重新输入");
 			// 服务器内部跳转到登录页面
-			mv.setViewName("forward:/loginForm");
+			mv.setViewName("forward:loginForm");
 		}
 		return mv;
 		
