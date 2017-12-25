@@ -4,8 +4,61 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.deepsl.hrm.dao.UserDao">
   
+  	<!--根据登录名和密码查询员工  -->
    <select id="selectByLoginnameAndPassword" parameterType="hashmap"  resultType="User" >
 		 select * from  user_inf  where loginname = #{loginname} and password = #{password} 
+   </select>
+   
+   <!-- 根据参数查询用户总数 -->
+   <select id="count"  parameterType="hashmap" resultType="int" >
+		 select count(*) from  user_inf 
+		 <where>
+		 	<include refid="mulitconditionQuery"></include>
+		 </where>
+   </select>
+   <sql id="mulitconditionQuery">
+   		<if test="username!=null and !username.trim().isEmpty()">
+   			and username like #{username}
+   		</if>
+   		<if test="status!=null and status > 0 ">
+   			and status = #{status}
+   		</if>  		
+   </sql>
+   
+   <!-- 动态查询 -->
+   <select id="selectByPage" parameterType="hashmap" resultType="User" >
+		 select * from  user_inf 
+		 <where>
+		 	<include refid="mulitconditionQuery"></include>
+		 </where>
+		 limit #{limit} offset #{offset}
+   </select>
+ 
+   
+   <!--  动态插入用户 -->
+   <select id="save" parameterType="user" >
+		 insert into user_inf values(null,#{username}, #{loginname}, #{password}, #{status}, #{createDate})
+   </select>
+   
+   <!-- 根据id查询用户 -->
+   <select id="selectById" parameterType="int"  resultType="User" >
+		 select * from  user_inf  where id = #{id}
+   </select>
+   
+   <!-- 根据id删除用户 -->
+   <select id="deleteById" parameterType="int"  resultType="User" >
+		 delete from  user_inf  where id = #{id}
+   </select>
+
+	<!--  动态修改用户 -->
+	<select id="update" parameterType="user" >
+		
+			update user_inf set 
+		 		username=#{username}, 
+		 		loginname=#{loginname}, 
+		 		password=#{password}, 
+		 		status=#{status}
+		 	 where id = #{id}
    </select>
 
 
