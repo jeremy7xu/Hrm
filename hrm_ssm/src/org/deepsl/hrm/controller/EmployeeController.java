@@ -38,7 +38,6 @@ public class EmployeeController {
 			
 			return "employee/showAddEmployee";
 		}
-		
 		employService.addEmployee(employee);
 		
 		return "employee";
