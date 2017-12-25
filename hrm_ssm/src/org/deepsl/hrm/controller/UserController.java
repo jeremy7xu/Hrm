@@ -63,6 +63,24 @@ public class UserController {
 		
 	}
 	
+	
+	/**
+	 * 处理注销退出请求
+
+	 * @param HttpServletRequest request
+	 * */
+	@RequestMapping("user/logout")
+	public String logout(HttpServletRequest request) {
+	
+		HttpSession session = request.getSession(false);
+		
+		if (null != session) {
+			session.invalidate();
+		}
+		
+		return "loginForm";
+	}
+	
 	/**
 	 * 处理用户查询请求
 	 * @param pageIndex 请求的是第几页
