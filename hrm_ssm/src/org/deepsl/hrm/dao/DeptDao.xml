@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.deepsl.hrm.dao.DeptDao">
+  
+  <select id="selectByPage" parameterType="hashmap" resultType="dept">
+  		select  * from dept_inf where 1=1
+  		<if test="name!=null">
+  			and name like '%${name}%'
+  		</if>
+  		 limit #{pageSize} offset #{start};
+  </select>
+  <select id="selectAllDept" resultType="dept">
+  		select * from dept_inf
+  </select>
+  <select id="count" parameterType="hashmap" resultType="int">
+  		select count(*) from dept_inf 	where 1=1
+  		<if test="name!=null">
+  			and name like '%${name}%'
+  		</if>
+  </select>
+    <select id="selectById" parameterType="int" resultType="dept">
+  		select * from dept_inf 	where id=#{id}
+  </select>
+   <insert id="save" parameterType="dept">
+		 insert into dept_inf values(null,#{name},#{remark}); 
+   </insert>
+	<update id="update" parameterType="dept">
+	 update dept_inf set name=#{name} ,remark =#{remark} where id=#{id} 
+	</update>
+</mapper>

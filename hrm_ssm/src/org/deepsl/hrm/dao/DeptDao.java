@@ -32,4 +32,5 @@ public interface DeptDao {
 	
 	// 动态修改用户
 	void update(Dept dept);
+
 }
