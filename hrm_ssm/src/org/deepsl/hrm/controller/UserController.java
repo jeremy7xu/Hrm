@@ -27,7 +27,6 @@ public class UserController {
 	 * 自动注入UserService
 	 * */
 	@Autowired
-	@Qualifier("hrmService")
 	private HrmService hrmService;
 		
 	/**
@@ -37,8 +36,8 @@ public class UserController {
 	 * @return 跳转的视图
 	 * */
 	@RequestMapping(value="/login")
-	 public ModelAndView login(@RequestParam("loginname") String loginname,
-			 @RequestParam("password") String password,
+	 public ModelAndView login( String loginname,
+			  String password,
 			 HttpSession session,
 			 ModelAndView mv){
 		// 调用业务逻辑组件判断用户是否可以登录
@@ -47,7 +46,7 @@ public class UserController {
 			// 将用户保存到HttpSession当中
 			session.setAttribute(HrmConstants.USER_SESSION, user);
 			// 客户端跳转到main页面
-			mv.setViewName("redirect:/main");
+			mv.setViewName("main");
 		}else{
 			// 设置登录失败提示信息
 			mv.addObject("message", "登录名或密码错误!请重新输入");
@@ -73,8 +72,11 @@ public class UserController {
 	 * */
  
 	
-	
- 
-	 
+	@RequestMapping("aaa")
+	 public void aa(){
+		 
+		 System.out.println("UserController.aa()");
+		 
+	 }
 	
 }
