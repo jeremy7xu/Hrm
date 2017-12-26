@@ -95,5 +95,5 @@ public class JobController {
 			jobService.removeJobById(id);
 		}
 		return "forward:toSelectJob";
-	}
+	}   
 }
