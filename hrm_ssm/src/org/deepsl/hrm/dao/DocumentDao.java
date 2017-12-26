@@ -26,7 +26,7 @@ public interface DocumentDao {
  	Document selectById(int id);
 	
 	// 根据id删除文档
- 	void deleteById(Integer id);
+ 	void deleteById(List<Integer> ids);
 		
 	// 动态修改文档
  	void update(Document document);
