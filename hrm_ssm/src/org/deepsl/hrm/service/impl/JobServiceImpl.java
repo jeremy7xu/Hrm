@@ -20,7 +20,7 @@ public class JobServiceImpl implements JobService {
 	@Override
 	public void addJob(Job job) {
 
-		jobDao.save(job);
+		jobDao.save(job); 
 	}
 
 	@Override
