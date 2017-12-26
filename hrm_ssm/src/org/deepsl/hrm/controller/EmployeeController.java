@@ -48,6 +48,10 @@ public class EmployeeController {
 			
 			return "employee/showAddEmployee";
 		}
+		Job findJobById = jobService.findJobById(Integer.parseInt(job_id));
+		Dept findDeptById = deptService.findDeptById(Integer.parseInt(dept_id));
+		employee.setJob(findJobById);
+		employee.setDept(findDeptById);
 		employService.addEmployee(employee);
 		
 		return "employee";
