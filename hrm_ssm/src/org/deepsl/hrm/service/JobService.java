@@ -17,6 +17,6 @@ public interface JobService {
 	
 	Job findJobById(Integer id);
 	
-	void removeJobById(Integer id);
+	void removeJobById(Integer id); 
 
 }
