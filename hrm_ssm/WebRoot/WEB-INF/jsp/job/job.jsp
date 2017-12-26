@@ -116,7 +116,7 @@
 					<td><input type="checkbox" id="box_${stat.index}" value="${job.id}"></td>
 					 <td>${job.name }</td>
 					  <td>${job.remark }</td>
-					 <td align="center" width="40px;"><a href="${ctx}/job/updateJob?flag=1&id=${job.id}">
+					 <td align="center" width="40px;"><a href="${ctx}/job/toUpdateJob?flag=1&id=${job.id}">
 							<img title="修改" src="${ctx}/images/update.gif"/></a>
 					  </td>
 				</tr>

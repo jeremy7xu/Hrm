@@ -1,5 +1,6 @@
 package org.deepsl.hrm.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.deepsl.hrm.domain.Dept;
@@ -27,6 +28,13 @@ public class DeptController {
 	@Autowired
 	private DeptService deptService;
 	
+	@RequestMapping(value="removeDept")
+	public ModelAndView removeDept(@RequestParam("ids")Integer[] ids,ModelAndView mv){
+		List<Integer> list = Arrays.asList(ids);
+		deptService.removeDeptByIds(list);
+		mv.setViewName("forward:selectDept");
+		return mv;
+	}
 	@RequestMapping(value="selectDept")
 	public ModelAndView selectDept(PageModel pageModel,Dept dept,ModelAndView mv){
 
