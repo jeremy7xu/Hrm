@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.mapping.FetchType;
 import org.deepsl.hrm.domain.Employee;
+import org.deepsl.hrm.util.tag.PageModel;
 
 import static org.deepsl.hrm.util.common.HrmConstants.EMPLOYEETABLE;
 
@@ -40,4 +41,10 @@ public interface EmployeeDao {
 	// 动态修改员工
  	void update(Employee employee);
 
+ 	//增加员工
+	void addEmployee(Employee employee);
+
+	
+
+	
 }
