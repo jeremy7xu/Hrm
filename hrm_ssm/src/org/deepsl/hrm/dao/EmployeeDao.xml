@@ -55,7 +55,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   		select * from job_inf where id=#{xxx};
   	</select>
 
-
 	<!--计算总记录数目 -->
 	<select id="count" parameterType="hashmap" resultType="int">
 	select count(*) from employee_inf

@@ -123,7 +123,6 @@ public class EmployeeController {
 		employService.modifyEmployee(employee);
 		
 		return "forward:/employee/selectEmployee";
-		
 	}
 	
 

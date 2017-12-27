@@ -22,7 +22,6 @@ public class EmployServiceImpl implements EmployService {
 	@Override
 	public void addEmployee(Employee employee) {
 		// TODO Auto-generated method stub
-		
 		dao.addEmployee(employee);
 	}
 
