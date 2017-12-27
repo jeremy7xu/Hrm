@@ -112,7 +112,6 @@ public class EmployeeController {
 			
 			return "employee/showUpdateEmployee";
 		}
-		
 		Job job = new Job();
 		job.setId(job_id);
 		Dept dept = new Dept();
