@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.deepsl.hrm.dao.DocumentDao">
+
+	<select id="selectById" resultType="document">
+		select * from document_inf where id=#{id}
+	</select>
+
+  	<!-- 动态插入文档 -->
+	<insert id="save" parameterType="Document">
+		insert into document_inf values(null,#{title},#{fileName},#{remark},#{createDate},#{user.id})
+	</insert>
+	
+	<!-- 动态查询文档的数量 -->
+	<select id="count" parameterType="hashmap" resultType="int">
+		select count(*) from document_inf
+		<where>
+			<include refid="multiConditionQuery"></include>
+		</where>
+	</select>
+
+	<sql id="multiConditionQuery">
+		<if test="title!=null and title!=''">title like #{title}</if>
+	</sql>
+	
+	<!-- 动态查询 -->
+	<select id="selectByPage" parameterType="hashmap" resultMap="documentMap">
+		select * from document_inf
+		<where>
+			<include refid="multiConditionQuery"></include>
+		</where>
+		limit #{limit} offset #{offset}
+	</select>
+	
+	<resultMap type="document" id="documentMap">
+		<id column="id" property="id"/>
+		<association property="user" javaType="user"
+					select="org.deepsl.hrm.dao.UserDao.selectById" column="uid">
+			<id column="id" property="id"/>
+		</association>
+	</resultMap>
+
+	<delete id="deleteById" parameterType="list">
+		delete from document_inf where
+		id in (
+			<foreach collection="list"  separator=","  item="id">
+				#{id}
+			</foreach>
+		)
+	</delete>
+	
+	<!-- 动态修改 -->
+	<update id="update" parameterType="document" >
+		update  document_inf 
+		<set>
+			<if test="title!=null">title = #{title},</if>
+			<if test="fileName!=null">fileName = #{fileName},</if>
+			<if test="createDate!=null">createDate = #{createDate},</if>
+			<if test="remark!=null">remark = #{remark},</if>
+			<if test="user!=null and user.id != 0">uid = #{user.id}</if>			
+		</set>
+		where id=#{id}
+	</update>
+	
+</mapper>
+

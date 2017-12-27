@@ -171,10 +171,10 @@
 	  <!-- 分页标签 -->
 	  <tr valign="top"><td align="center" class="font3">
 	  	   <fkjava:pager 
-	  	      pageIndex="${pageModel.pageIndex}" 
-	  	      pageSize="${pageModel.pageSize}" 
-	  	      recordCount="${pageModel.recordCount}" 
-	  	      submitUrl="${ctx}/document/selectDocument.action?pageModel.pageIndex={0}&document.title=${document.title}"
+	  	      pageIndex="${requestScope.pageModel.pageIndex}" 
+	  	      pageSize="${requestScope.pageModel.pageSize}" 
+	  	      recordCount="${requestScope.pageModel.recordCount}" 
+	  	      submitUrl="${ctx}/document/selectDocument?pageIndex={0}&title=${document.title}"
 	  	      style="flickr"
 	  	      />
 	  </td></tr>
