@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.deepsl.hrm.dao.EmployeeDao">
+ 
+  <!--增加员工  -->
+  <insert id="addEmployee" parameterType="employee">
+  	insert into employee_inf values(#{id},#{dept.id},#{job.id},#{name},#{cardId},#{address},#{postCode},#{tel},#{phone},#{qqNum},#{email},#{sex},#{party},#{birthday},#{race},#{education},#{speciality},#{hobby},#{remark},#{createDate});
+  </insert>
+  
+  <!--Sql片段  -->
+  <sql id="MultiConditionQuery">
+  <if test="employee !=null and employee.dept.Id >0">
+  			and deptId=#{employee.dept.id}
+  		</if>
+  		<if test="employee !=null and employee.job.id>0">
+  			and jobId=#{employee.job.id}
+  		</if>
+  		<if test="employee !=null and employee.name !=null and employee.name !=''">
+  			and name like '%${employee.name}%'
+  		</if>
+  		<if test="employee !=null and employee.phone !=null and employee.phone !=''">
+  		 	and phone=#{employee.phone}
+  		</if>
+  		<if test="employee !=null and employee.sex !=null and employee.sex !=''">
+  			and sex=#{employee.sex}
+  		</if>
+  		<if test="employee !=null and employee.cardId != null and employee.cardId !=''">
+  			and cardId=#{employee.cardId}
+  		</if>
+  </sql>
+ 
+  <!-- 查找员工  -->
+  <select id="selectByPage" parameterType="hashmap" resultMap="employeeMapping">
+  	select * from employee_inf 
+  	<where>
+  		<include refid="MultiConditionQuery"></include>
+  	</where>
+  	limit #{pageModel.pageSize} offset #{offset};
+  </select>
+  <resultMap type="employee" id="employeeMapping">
+  	<id column="id" property="id"/>
+  	<association property="dept" javaType="Dept" select="org.deepsl.hrm.dao.EmployeeDao.findDepByid" column="deptID">
+  	<id column="id" property="id"/>
+  	</association>
+  	<association property="job" javaType="Job" select="org.deepsl.hrm.dao.EmployeeDao.findJobByid" column="jobId">
+  		<id column="id" property="id"/>
+  	</association>
+  </resultMap>
+  	<select id="findDepByid" parameterType="int" resultType="Dept">
+  		select * from dept_inf where id=#{xxx};
+  	</select>
+  	<select id="findJobByid" parameterType="int" resultType="Job">
+  		select * from job_inf where id=#{xxx};
+  	</select>
+
+
+	<!--计算总记录数目 -->
+	<select id="count" parameterType="hashmap" resultType="int">
+	select count(*) from employee_inf
+	<where>
+		<include refid="MultiConditionQuery"></include>
+	</where>
+	</select>
+	
+	<!--删除员工  -->
+	<delete id="deleteById" parameterType="int">
+		delete from employee_inf where id=#{xxx};                           
+	</delete>
+	
+	<!--根据Id查找员工  -->
+	<select id="selectById" parameterType="int" resultMap="employeeMapping">
+		select * from employee_inf where id = #{xxx};
+	</select>
+	
+	<!--更新员工  -->
+	<update id="update" parameterType="employee">
+	
+		update employee_inf set name=#{name}, deptId=#{dept.id},jobId=#{job.id},cardId=#{cardId},address=#{address},
+		postCode=#{postCode},tel=#{tel},phone=#{phone},qqNum=#{qqNum},email=#{email},sex=#{sex},party=#{party},birthday=#{birthday},
+		race=#{race},education=#{education},speciality=#{speciality},hobby=#{hobby},remark=#{remark},createDate=#{createDate} where id=#{id};
+	</update>
+</mapper>
+
